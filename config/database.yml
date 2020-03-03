@@ -25,5 +25,9 @@ test:
   database: railsApi_test
 
 production:
-  <<: *default
-  database: railsApi_production
+   <<: *default
+  database: <%= ENV['RDS_DATABASE'] %>
+  username: <%= ENV['RDS_USERNAME'] %>
+  password: <%= ENV['RDS_PASSWORD'] %>
+  host: <%= ENV['RDS_HOST'] %>
+  post: 5432
