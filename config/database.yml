@@ -7,7 +7,7 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  host: localhost
+  host: ''
   username: <%=Rails.application.credentials[:database_username] %>>
   password: <%=Rails.application.credentials[:database_password] %>
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
@@ -25,7 +25,7 @@ test:
   database: railsApi_test
 
 production:
-   <<: *default
+  <<: *default
   database: <%= ENV['RDS_DATABASE'] %>
   username: <%= ENV['RDS_USERNAME'] %>
   password: <%= ENV['RDS_PASSWORD'] %>
